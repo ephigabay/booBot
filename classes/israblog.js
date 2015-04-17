@@ -33,7 +33,7 @@ Israblog.prototype.getGender = function() {
         return config.GENDERS.FEMALE;
     }
 
-    if(this.html.match(/<b>בן:<\/b>/g)) {
+    if(this.html.match(/<b>בן:<\/b>/)) {
         return config.GENDERS.MALE;
     }
 
@@ -55,11 +55,26 @@ Israblog.prototype.getEmail = function() {
 
     var regexMatches = this.html.match(/displayEmail\(.*?,'(.*?)','(.*?)'/);
     if(regexMatches) {
-        var email = regexMatches[1] + '@' + regexMatches[2];
-        this.email = email;
+        this.email = regexMatches[1] + '@' + regexMatches[2];
         return this.email;
     }
     return null;
+};
+
+/**
+ * This method gets the age from the blog
+ * @returns {number} The age. If unknown returns -1
+ */
+Israblog.prototype.getAge = function() {
+    if(!this.html) {
+        return -1;
+    }
+
+    var matches = this.html.match(/<b>.*?:<\/b>.*?([0-9]+).*?<br>/);
+    if(matches && matches.length > 1) {
+        return parseInt(matches[1])
+    }
+    return -1;
 };
 
 /* Static methods */
@@ -92,5 +107,5 @@ Israblog.getBlogById = function(blogId) {
             var body = windows1255.decode( bodyStream.toString('binary'));
             return new Israblog(blogId, body);
         });
-    })
+    });
 };
