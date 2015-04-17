@@ -14,5 +14,9 @@ module.exports = {
     },
     DB: {
         FILE_PATH: 'data/emails.json'
+    },
+    AGES: {
+        MIN: 17,
+        MAX: 27
     }
 };
