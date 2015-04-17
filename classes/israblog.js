@@ -45,13 +45,19 @@ Israblog.prototype.getGender = function() {
  * @returns {string} the email if exists otherwise null
  */
 Israblog.prototype.getEmail = function() {
+    if(this.email) {
+        return this.email;
+    }
+
     if(!this.html) {
         return null;
     }
 
     var regexMatches = this.html.match(/displayEmail\(.*?,'(.*?)','(.*?)'/);
     if(regexMatches) {
-        return regexMatches[1] + '@' + regexMatches[2];
+        var email = regexMatches[1] + '@' + regexMatches[2];
+        this.email = email;
+        return this.email;
     }
     return null;
 };

@@ -11,5 +11,8 @@ module.exports = {
     ISRABLOG: {
         RANDOM_PAGE: 'http://israblog.nana10.co.il/random.asp',
         BLOG_URL: 'http://israblog.nana10.co.il/blogread.asp?blog={BLOG_ID}'
+    },
+    DB: {
+        FILE_PATH: 'data/emails.json'
     }
 };
