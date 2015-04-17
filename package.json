@@ -1,0 +1,15 @@
+{
+  "name": "booBot",
+  "version": "1.0.0",
+  "description": "Israblog bot poc",
+  "main": "boobot.js",
+  "scripts": {
+    "test": "node boobot"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "q": "^1.2.0",
+    "q-io": "^1.12.0"
+  }
+}
