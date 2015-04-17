@@ -3,17 +3,18 @@
 
 var Israblog = require('./classes/israblog');
 var DB = require('./classes/db');
+var Email = require('./classes/email');
 var config = require('./config');
 
 var foundEmails;
 
 (function main() {
-    DB.getStoredItems().then(function(items) {
+    /*DB.getStoredItems().then(function(items) {
         foundEmails = items;
     });
 
 
-    for(var i = 0; i < 10; i++) {
+    for(var i = 0; i < 20; i++) {
         Israblog.getRandomBlogId().then(function(blogId) {
             if(blogId) {
                 Israblog.getBlogById(blogId).then(function(blog) {
@@ -29,5 +30,8 @@ var foundEmails;
                 })
             }
         })
-    }
+    }*/
+
+    var mailSender = new Email();
+    mailSender.sendMail('gabay.ephi@gmail.com');
 })();

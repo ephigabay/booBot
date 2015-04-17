@@ -9,7 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "emailjs": "^0.3.13",
     "q": "^1.2.0",
-    "q-io": "^1.12.0"
+    "q-io": "^1.12.0",
+    "windows-1255": "^0.1.2"
   }
 }
